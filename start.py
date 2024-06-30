@@ -1,14 +1,25 @@
 """CTK-test_runner.py: Run tests from excel file.
 version: 0.0"""
-# import customtkinter as ctk
+import customtkinter as ctk
 import pandas as pd
 import os
 import sys
-import credentials as cr
+from tkinter import Tk
+from tkinter.filedialog import askopenfilename
+# import credentials as cr
 
 
-df_path = cr.example_path
+# df_path = cr.example_path
+filetypes = [
+    ("PNG images", "*.png"),
+    ("JPEG images", "*.jpg;*.jpeg"),
+    ("PDF documents", "*.pdf")
+]
 
+# Open the file dialog allowing selection of the specified file types
+filename = askopenfilename(filetypes=filetypes)
+
+print("Selected file:", filename)
 
 # new comment
 def process_csv(file_path):
@@ -43,5 +54,5 @@ def process_csv(file_path):
     return tables_info, tables
 
 
-tabels_info, tabels = process_csv(df_path)
-print(tabels, tabels_info)
+# tabels_info, tabels = process_csv(df_path)
+# print(tabels, tabels_info)
